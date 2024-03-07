@@ -1,0 +1,182 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #0f1523;
+    color: #fff;
+}
+
+body {
+    background-color: #0f1523;
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+h1 {
+    color: #fff;
+    font-size: 4rem;
+}
+
+form {
+    margin-top: 52%;
+}
+
+/* End Global Styling */
+
+
+.qr-container {
+    background-color: #fff;
+    height: auto;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: .5em;
+    padding: 20px 20px;
+}
+
+.qr-container label {
+    font-size: 16px;
+    color: #0f1523;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 3px;
+}
+
+#qrcode {
+    margin: 10px auto auto 20px;
+    text-align: center;
+    border: 5px dashed #cccccc;
+    padding: 5px;
+    position: absolute;
+    left: 25%;
+    cursor: pointer;
+}
+
+#qrcode:hover {
+    border: 5px dashed #0f1523;
+    transition: .2s;
+}
+
+#qr-data {
+    height: 150px;
+    width: 90%;
+    outline: none;
+    border: 5px dashed #cccccc;
+    border-radius: .5em;
+    left: 0;
+    padding: 10px;
+    font-size: 18px;
+    resize: none;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    text-align: center;
+    word-wrap: wrap;
+    font-family: 'Arial', sans-serif;
+}
+
+::placeholder {
+    text-align: center;
+    font-size: 16px;
+    color: #b4b3b3;
+}
+
+#qr-data:focus {
+    border: 5px dashed #0f1523;
+    transition: .2s;
+}
+
+button {
+    margin: 5px;
+}
+
+#generate-button,
+#download-button {
+    margin-top: 10px;
+    padding: 16px 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #0f1523;
+    color: #fff;
+    border-radius: .5em;
+    font-size: 16px;
+    width: 90%;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0px 8px 10px 5px #00000020;
+}
+
+#generate-button:hover,
+#download-button:hover {
+    background-color: #2C4761;
+    transition: .2s;
+
+}
+
+/* Resonsive Codes */
+/* For mobile phones: */
+@media only screen and (max-width: 480px) {
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    h1 {
+        display: none;
+    }
+
+    .container {
+        margin-top: 5%;
+    }
+
+    .qr-container {
+        height: auto;
+        width: 300px;
+        margin: 5% 0;
+        padding: 20px;
+    }
+
+    .qr-container label {
+        font-size: 12px;
+    }
+
+    #qrcode {
+        margin: 20px auto;
+        left: 13%;
+    }
+
+    form {
+        margin-top: 100%;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    h1 {
+        display: none;
+    }
+
+    .qr-container {
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    h1 {
+        margin: 30px 0;
+        font-size: 3rem;
+        display: block;
+    }
+
+    .qr-container {
+        margin-top: 3%;
+        margin-bottom: 0;
+    }
+}
