@@ -3,8 +3,8 @@ let qrData = document.getElementById("qr-data"),
         text: "https://www.alba-rosa.cz",
         width: 200,
         height: 200,
-        colorDark: "#0f1523",
-        colorLight: "#ffffff",
+        colorDark: "#000000",
+        colorLight: "#ffffff00",
         correctLevel: QRCode.CorrectLevel.H
     }),
     generateButton = document.getElementById("generate-button");

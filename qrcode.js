@@ -157,7 +157,7 @@ var QRCode;
 		},
 		mapData: function (a, b) {
 			for (var c = -1, d = this.moduleCount - 1, e = 7, g = 0, h = this.moduleCount - 1; h > 0; h -= 2)
-				for (6 == h && h--;;) {
+				for (6 == h && h--; ;) {
 					for (var i = 0; 2 > i; i++)
 						if (null == this.modules[d][h - i]) {
 							var j = !1;
@@ -165,9 +165,9 @@ var QRCode;
 							var k = f.getMask(b, d, h - i);
 							k && (j = !j), this.modules[d][h - i] = j, e--, -1 == e && (g++, e = 7)
 						} if (d += c, 0 > d || this.moduleCount <= d) {
-						d -= c, c = -c;
-						break
-					}
+							d -= c, c = -c;
+							break
+						}
 				}
 		}
 	}, b.PAD0 = 236, b.PAD1 = 17, b.createData = function (a, c, d) {
@@ -178,7 +178,7 @@ var QRCode;
 		for (var l = 0, h = 0; h < e.length; h++) l += e[h].dataCount;
 		if (g.getLengthInBits() > 8 * l) throw new Error("code length overflow. (" + g.getLengthInBits() + ">" + 8 * l + ")");
 		for (g.getLengthInBits() + 4 <= 8 * l && g.put(0, 4); 0 != g.getLengthInBits() % 8;) g.putBit(!1);
-		for (;;) {
+		for (; ;) {
 			if (g.getLengthInBits() >= 8 * l) break;
 			if (g.put(b.PAD0, 8), g.getLengthInBits() >= 8 * l) break;
 			g.put(b.PAD1, 8)
@@ -208,185 +208,185 @@ var QRCode;
 		return s
 	};
 	for (var c = {
-			MODE_NUMBER: 1,
-			MODE_ALPHA_NUM: 2,
-			MODE_8BIT_BYTE: 4,
-			MODE_KANJI: 8
-		}, d = {
-			L: 1,
-			M: 0,
-			Q: 3,
-			H: 2
-		}, e = {
-			PATTERN000: 0,
-			PATTERN001: 1,
-			PATTERN010: 2,
-			PATTERN011: 3,
-			PATTERN100: 4,
-			PATTERN101: 5,
-			PATTERN110: 6,
-			PATTERN111: 7
-		}, f = {
-			PATTERN_POSITION_TABLE: [
-				[],
-				[6, 18],
-				[6, 22],
-				[6, 26],
-				[6, 30],
-				[6, 34],
-				[6, 22, 38],
-				[6, 24, 42],
-				[6, 26, 46],
-				[6, 28, 50],
-				[6, 30, 54],
-				[6, 32, 58],
-				[6, 34, 62],
-				[6, 26, 46, 66],
-				[6, 26, 48, 70],
-				[6, 26, 50, 74],
-				[6, 30, 54, 78],
-				[6, 30, 56, 82],
-				[6, 30, 58, 86],
-				[6, 34, 62, 90],
-				[6, 28, 50, 72, 94],
-				[6, 26, 50, 74, 98],
-				[6, 30, 54, 78, 102],
-				[6, 28, 54, 80, 106],
-				[6, 32, 58, 84, 110],
-				[6, 30, 58, 86, 114],
-				[6, 34, 62, 90, 118],
-				[6, 26, 50, 74, 98, 122],
-				[6, 30, 54, 78, 102, 126],
-				[6, 26, 52, 78, 104, 130],
-				[6, 30, 56, 82, 108, 134],
-				[6, 34, 60, 86, 112, 138],
-				[6, 30, 58, 86, 114, 142],
-				[6, 34, 62, 90, 118, 146],
-				[6, 30, 54, 78, 102, 126, 150],
-				[6, 24, 50, 76, 102, 128, 154],
-				[6, 28, 54, 80, 106, 132, 158],
-				[6, 32, 58, 84, 110, 136, 162],
-				[6, 26, 54, 82, 110, 138, 166],
-				[6, 30, 58, 86, 114, 142, 170]
-			],
-			G15: 1335,
-			G18: 7973,
-			G15_MASK: 21522,
-			getBCHTypeInfo: function (a) {
-				for (var b = a << 10; f.getBCHDigit(b) - f.getBCHDigit(f.G15) >= 0;) b ^= f.G15 << f.getBCHDigit(b) - f.getBCHDigit(f.G15);
-				return (a << 10 | b) ^ f.G15_MASK
-			},
-			getBCHTypeNumber: function (a) {
-				for (var b = a << 12; f.getBCHDigit(b) - f.getBCHDigit(f.G18) >= 0;) b ^= f.G18 << f.getBCHDigit(b) - f.getBCHDigit(f.G18);
-				return a << 12 | b
-			},
-			getBCHDigit: function (a) {
-				for (var b = 0; 0 != a;) b++, a >>>= 1;
-				return b
-			},
-			getPatternPosition: function (a) {
-				return f.PATTERN_POSITION_TABLE[a - 1]
-			},
-			getMask: function (a, b, c) {
+		MODE_NUMBER: 1,
+		MODE_ALPHA_NUM: 2,
+		MODE_8BIT_BYTE: 4,
+		MODE_KANJI: 8
+	}, d = {
+		L: 1,
+		M: 0,
+		Q: 3,
+		H: 2
+	}, e = {
+		PATTERN000: 0,
+		PATTERN001: 1,
+		PATTERN010: 2,
+		PATTERN011: 3,
+		PATTERN100: 4,
+		PATTERN101: 5,
+		PATTERN110: 6,
+		PATTERN111: 7
+	}, f = {
+		PATTERN_POSITION_TABLE: [
+			[],
+			[6, 18],
+			[6, 22],
+			[6, 26],
+			[6, 30],
+			[6, 34],
+			[6, 22, 38],
+			[6, 24, 42],
+			[6, 26, 46],
+			[6, 28, 50],
+			[6, 30, 54],
+			[6, 32, 58],
+			[6, 34, 62],
+			[6, 26, 46, 66],
+			[6, 26, 48, 70],
+			[6, 26, 50, 74],
+			[6, 30, 54, 78],
+			[6, 30, 56, 82],
+			[6, 30, 58, 86],
+			[6, 34, 62, 90],
+			[6, 28, 50, 72, 94],
+			[6, 26, 50, 74, 98],
+			[6, 30, 54, 78, 102],
+			[6, 28, 54, 80, 106],
+			[6, 32, 58, 84, 110],
+			[6, 30, 58, 86, 114],
+			[6, 34, 62, 90, 118],
+			[6, 26, 50, 74, 98, 122],
+			[6, 30, 54, 78, 102, 126],
+			[6, 26, 52, 78, 104, 130],
+			[6, 30, 56, 82, 108, 134],
+			[6, 34, 60, 86, 112, 138],
+			[6, 30, 58, 86, 114, 142],
+			[6, 34, 62, 90, 118, 146],
+			[6, 30, 54, 78, 102, 126, 150],
+			[6, 24, 50, 76, 102, 128, 154],
+			[6, 28, 54, 80, 106, 132, 158],
+			[6, 32, 58, 84, 110, 136, 162],
+			[6, 26, 54, 82, 110, 138, 166],
+			[6, 30, 58, 86, 114, 142, 170]
+		],
+		G15: 1335,
+		G18: 7973,
+		G15_MASK: 21522,
+		getBCHTypeInfo: function (a) {
+			for (var b = a << 10; f.getBCHDigit(b) - f.getBCHDigit(f.G15) >= 0;) b ^= f.G15 << f.getBCHDigit(b) - f.getBCHDigit(f.G15);
+			return (a << 10 | b) ^ f.G15_MASK
+		},
+		getBCHTypeNumber: function (a) {
+			for (var b = a << 12; f.getBCHDigit(b) - f.getBCHDigit(f.G18) >= 0;) b ^= f.G18 << f.getBCHDigit(b) - f.getBCHDigit(f.G18);
+			return a << 12 | b
+		},
+		getBCHDigit: function (a) {
+			for (var b = 0; 0 != a;) b++, a >>>= 1;
+			return b
+		},
+		getPatternPosition: function (a) {
+			return f.PATTERN_POSITION_TABLE[a - 1]
+		},
+		getMask: function (a, b, c) {
+			switch (a) {
+				case e.PATTERN000:
+					return 0 == (b + c) % 2;
+				case e.PATTERN001:
+					return 0 == b % 2;
+				case e.PATTERN010:
+					return 0 == c % 3;
+				case e.PATTERN011:
+					return 0 == (b + c) % 3;
+				case e.PATTERN100:
+					return 0 == (Math.floor(b / 2) + Math.floor(c / 3)) % 2;
+				case e.PATTERN101:
+					return 0 == b * c % 2 + b * c % 3;
+				case e.PATTERN110:
+					return 0 == (b * c % 2 + b * c % 3) % 2;
+				case e.PATTERN111:
+					return 0 == (b * c % 3 + (b + c) % 2) % 2;
+				default:
+					throw new Error("bad maskPattern:" + a)
+			}
+		},
+		getErrorCorrectPolynomial: function (a) {
+			for (var b = new i([1], 0), c = 0; a > c; c++) b = b.multiply(new i([1, g.gexp(c)], 0));
+			return b
+		},
+		getLengthInBits: function (a, b) {
+			if (b >= 1 && 10 > b) switch (a) {
+				case c.MODE_NUMBER:
+					return 10;
+				case c.MODE_ALPHA_NUM:
+					return 9;
+				case c.MODE_8BIT_BYTE:
+					return 8;
+				case c.MODE_KANJI:
+					return 8;
+				default:
+					throw new Error("mode:" + a)
+			} else if (27 > b) switch (a) {
+				case c.MODE_NUMBER:
+					return 12;
+				case c.MODE_ALPHA_NUM:
+					return 11;
+				case c.MODE_8BIT_BYTE:
+					return 16;
+				case c.MODE_KANJI:
+					return 10;
+				default:
+					throw new Error("mode:" + a)
+			} else {
+				if (!(41 > b)) throw new Error("type:" + b);
 				switch (a) {
-					case e.PATTERN000:
-						return 0 == (b + c) % 2;
-					case e.PATTERN001:
-						return 0 == b % 2;
-					case e.PATTERN010:
-						return 0 == c % 3;
-					case e.PATTERN011:
-						return 0 == (b + c) % 3;
-					case e.PATTERN100:
-						return 0 == (Math.floor(b / 2) + Math.floor(c / 3)) % 2;
-					case e.PATTERN101:
-						return 0 == b * c % 2 + b * c % 3;
-					case e.PATTERN110:
-						return 0 == (b * c % 2 + b * c % 3) % 2;
-					case e.PATTERN111:
-						return 0 == (b * c % 3 + (b + c) % 2) % 2;
-					default:
-						throw new Error("bad maskPattern:" + a)
-				}
-			},
-			getErrorCorrectPolynomial: function (a) {
-				for (var b = new i([1], 0), c = 0; a > c; c++) b = b.multiply(new i([1, g.gexp(c)], 0));
-				return b
-			},
-			getLengthInBits: function (a, b) {
-				if (b >= 1 && 10 > b) switch (a) {
 					case c.MODE_NUMBER:
-						return 10;
+						return 14;
 					case c.MODE_ALPHA_NUM:
-						return 9;
-					case c.MODE_8BIT_BYTE:
-						return 8;
-					case c.MODE_KANJI:
-						return 8;
-					default:
-						throw new Error("mode:" + a)
-				} else if (27 > b) switch (a) {
-					case c.MODE_NUMBER:
-						return 12;
-					case c.MODE_ALPHA_NUM:
-						return 11;
+						return 13;
 					case c.MODE_8BIT_BYTE:
 						return 16;
 					case c.MODE_KANJI:
-						return 10;
+						return 12;
 					default:
 						throw new Error("mode:" + a)
-				} else {
-					if (!(41 > b)) throw new Error("type:" + b);
-					switch (a) {
-						case c.MODE_NUMBER:
-							return 14;
-						case c.MODE_ALPHA_NUM:
-							return 13;
-						case c.MODE_8BIT_BYTE:
-							return 16;
-						case c.MODE_KANJI:
-							return 12;
-						default:
-							throw new Error("mode:" + a)
-					}
 				}
-			},
-			getLostPoint: function (a) {
-				for (var b = a.getModuleCount(), c = 0, d = 0; b > d; d++)
-					for (var e = 0; b > e; e++) {
-						for (var f = 0, g = a.isDark(d, e), h = -1; 1 >= h; h++)
-							if (!(0 > d + h || d + h >= b))
-								for (var i = -1; 1 >= i; i++) 0 > e + i || e + i >= b || (0 != h || 0 != i) && g == a.isDark(d + h, e + i) && f++;
-						f > 5 && (c += 3 + f - 5)
-					}
-				for (var d = 0; b - 1 > d; d++)
-					for (var e = 0; b - 1 > e; e++) {
-						var j = 0;
-						a.isDark(d, e) && j++, a.isDark(d + 1, e) && j++, a.isDark(d, e + 1) && j++, a.isDark(d + 1, e + 1) && j++, (0 == j || 4 == j) && (c += 3)
-					}
-				for (var d = 0; b > d; d++)
-					for (var e = 0; b - 6 > e; e++) a.isDark(d, e) && !a.isDark(d, e + 1) && a.isDark(d, e + 2) && a.isDark(d, e + 3) && a.isDark(d, e + 4) && !a.isDark(d, e + 5) && a.isDark(d, e + 6) && (c += 40);
-				for (var e = 0; b > e; e++)
-					for (var d = 0; b - 6 > d; d++) a.isDark(d, e) && !a.isDark(d + 1, e) && a.isDark(d + 2, e) && a.isDark(d + 3, e) && a.isDark(d + 4, e) && !a.isDark(d + 5, e) && a.isDark(d + 6, e) && (c += 40);
-				for (var k = 0, e = 0; b > e; e++)
-					for (var d = 0; b > d; d++) a.isDark(d, e) && k++;
-				var l = Math.abs(100 * k / b / b - 50) / 5;
-				return c += 10 * l
 			}
-		}, g = {
-			glog: function (a) {
-				if (1 > a) throw new Error("glog(" + a + ")");
-				return g.LOG_TABLE[a]
-			},
-			gexp: function (a) {
-				for (; 0 > a;) a += 255;
-				for (; a >= 256;) a -= 255;
-				return g.EXP_TABLE[a]
-			},
-			EXP_TABLE: new Array(256),
-			LOG_TABLE: new Array(256)
-		}, h = 0; 8 > h; h++) g.EXP_TABLE[h] = 1 << h;
+		},
+		getLostPoint: function (a) {
+			for (var b = a.getModuleCount(), c = 0, d = 0; b > d; d++)
+				for (var e = 0; b > e; e++) {
+					for (var f = 0, g = a.isDark(d, e), h = -1; 1 >= h; h++)
+						if (!(0 > d + h || d + h >= b))
+							for (var i = -1; 1 >= i; i++) 0 > e + i || e + i >= b || (0 != h || 0 != i) && g == a.isDark(d + h, e + i) && f++;
+					f > 5 && (c += 3 + f - 5)
+				}
+			for (var d = 0; b - 1 > d; d++)
+				for (var e = 0; b - 1 > e; e++) {
+					var j = 0;
+					a.isDark(d, e) && j++, a.isDark(d + 1, e) && j++, a.isDark(d, e + 1) && j++, a.isDark(d + 1, e + 1) && j++, (0 == j || 4 == j) && (c += 3)
+				}
+			for (var d = 0; b > d; d++)
+				for (var e = 0; b - 6 > e; e++) a.isDark(d, e) && !a.isDark(d, e + 1) && a.isDark(d, e + 2) && a.isDark(d, e + 3) && a.isDark(d, e + 4) && !a.isDark(d, e + 5) && a.isDark(d, e + 6) && (c += 40);
+			for (var e = 0; b > e; e++)
+				for (var d = 0; b - 6 > d; d++) a.isDark(d, e) && !a.isDark(d + 1, e) && a.isDark(d + 2, e) && a.isDark(d + 3, e) && a.isDark(d + 4, e) && !a.isDark(d + 5, e) && a.isDark(d + 6, e) && (c += 40);
+			for (var k = 0, e = 0; b > e; e++)
+				for (var d = 0; b > d; d++) a.isDark(d, e) && k++;
+			var l = Math.abs(100 * k / b / b - 50) / 5;
+			return c += 10 * l
+		}
+	}, g = {
+		glog: function (a) {
+			if (1 > a) throw new Error("glog(" + a + ")");
+			return g.LOG_TABLE[a]
+		},
+		gexp: function (a) {
+			for (; 0 > a;) a += 255;
+			for (; a >= 256;) a -= 255;
+			return g.EXP_TABLE[a]
+		},
+		EXP_TABLE: new Array(256),
+		LOG_TABLE: new Array(256)
+	}, h = 0; 8 > h; h++) g.EXP_TABLE[h] = 1 << h;
 	for (var h = 8; 256 > h; h++) g.EXP_TABLE[h] = g.EXP_TABLE[h - 4] ^ g.EXP_TABLE[h - 5] ^ g.EXP_TABLE[h - 6] ^ g.EXP_TABLE[h - 8];
 	for (var h = 0; 255 > h; h++) g.LOG_TABLE[g.EXP_TABLE[h]] = h;
 	i.prototype = {
@@ -604,47 +604,47 @@ var QRCode;
 		}
 	};
 	var l = [
-			[17, 14, 11, 7],
-			[32, 26, 20, 14],
-			[53, 42, 32, 24],
-			[78, 62, 46, 34],
-			[106, 84, 60, 44],
-			[134, 106, 74, 58],
-			[154, 122, 86, 64],
-			[192, 152, 108, 84],
-			[230, 180, 130, 98],
-			[271, 213, 151, 119],
-			[321, 251, 177, 137],
-			[367, 287, 203, 155],
-			[425, 331, 241, 177],
-			[458, 362, 258, 194],
-			[520, 412, 292, 220],
-			[586, 450, 322, 250],
-			[644, 504, 364, 280],
-			[718, 560, 394, 310],
-			[792, 624, 442, 338],
-			[858, 666, 482, 382],
-			[929, 711, 509, 403],
-			[1003, 779, 565, 439],
-			[1091, 857, 611, 461],
-			[1171, 911, 661, 511],
-			[1273, 997, 715, 535],
-			[1367, 1059, 751, 593],
-			[1465, 1125, 805, 625],
-			[1528, 1190, 868, 658],
-			[1628, 1264, 908, 698],
-			[1732, 1370, 982, 742],
-			[1840, 1452, 1030, 790],
-			[1952, 1538, 1112, 842],
-			[2068, 1628, 1168, 898],
-			[2188, 1722, 1228, 958],
-			[2303, 1809, 1283, 983],
-			[2431, 1911, 1351, 1051],
-			[2563, 1989, 1423, 1093],
-			[2699, 2099, 1499, 1139],
-			[2809, 2213, 1579, 1219],
-			[2953, 2331, 1663, 1273]
-		],
+		[17, 14, 11, 7],
+		[32, 26, 20, 14],
+		[53, 42, 32, 24],
+		[78, 62, 46, 34],
+		[106, 84, 60, 44],
+		[134, 106, 74, 58],
+		[154, 122, 86, 64],
+		[192, 152, 108, 84],
+		[230, 180, 130, 98],
+		[271, 213, 151, 119],
+		[321, 251, 177, 137],
+		[367, 287, 203, 155],
+		[425, 331, 241, 177],
+		[458, 362, 258, 194],
+		[520, 412, 292, 220],
+		[586, 450, 322, 250],
+		[644, 504, 364, 280],
+		[718, 560, 394, 310],
+		[792, 624, 442, 338],
+		[858, 666, 482, 382],
+		[929, 711, 509, 403],
+		[1003, 779, 565, 439],
+		[1091, 857, 611, 461],
+		[1171, 911, 661, 511],
+		[1273, 997, 715, 535],
+		[1367, 1059, 751, 593],
+		[1465, 1125, 805, 625],
+		[1528, 1190, 868, 658],
+		[1628, 1264, 908, 698],
+		[1732, 1370, 982, 742],
+		[1840, 1452, 1030, 790],
+		[1952, 1538, 1112, 842],
+		[2068, 1628, 1168, 898],
+		[2188, 1722, 1228, 958],
+		[2303, 1809, 1283, 983],
+		[2431, 1911, 1351, 1051],
+		[2563, 1989, 1423, 1093],
+		[2699, 2099, 1499, 1139],
+		[2809, 2213, 1579, 1219],
+		[2953, 2331, 1663, 1273]
+	],
 		o = function () {
 			var a = function (a, b) {
 				this._el = a, this._htOption = b
@@ -765,15 +765,15 @@ var QRCode;
 		}();
 	QRCode = function (a, b) {
 		if (this._htOption = {
-				width: 256,
-				height: 256,
-				typeNumber: 4,
-				colorDark: "#000000",
-				colorLight: "#ffffff",
-				correctLevel: d.H
-			}, "string" == typeof b && (b = {
-				text: b
-			}), b)
+			width: 256,
+			height: 256,
+			typeNumber: 4,
+			colorDark: "#000000",
+			colorLight: "#ffffff00",
+			correctLevel: d.H
+		}, "string" == typeof b && (b = {
+			text: b
+		}), b)
 			for (var c in b) this._htOption[c] = b[c];
 		"string" == typeof a && (a = document.getElementById(a)), this._android = n(), this._el = a, this._oQRCode = null, this._oDrawing = new q(this._el, this._htOption), this._htOption.text && this.makeCode(this._htOption.text)
 	}, QRCode.prototype.makeCode = function (a) {
