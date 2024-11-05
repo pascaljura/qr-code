@@ -48,3 +48,9 @@ downloadButton.addEventListener("click", function (e) {
         }
     }
 });
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-N5R1ZPMLWP');
